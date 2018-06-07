@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User dashboard header</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="{% static 'login_app/js/script.js' %}"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{% static 'dashboard_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+	<style>.carousel-item > img { width:auto; max-height:600px; } </style>
+
+</head>
+<body>
+
+	<!-- this part is for carousal -->
+  {% include "dashboard_app/header.html"%}
+
+	<div class= "container">
+		<div class="row">
+      {% if request.session.user_data.level_id == 2 %}
+      <h2>All Users</h2>
+      {% endif %}
+      {% if request.session.user_data.level_id == 1 %}
+      <h2 class= "col col-lg-4">Manage Users</h2>
+      <div class="col col-lg-4" id="adduser">
+        <a href="#" class="btn btn-primary btn-block">Add User</a>
+      </div>
+      {% endif %}
+
+
+    </div>
+		<!--end of header-->
+
+
+    <div class="row">
+		<table class="table table-striped table-dark">
+		  	<thead>
+			    <tr>
+			      <th >ID</th>
+			      <th >Name</th>
+			      <th >Email</th>
+			      <th >Created_at</th>
+			      <th >User_Level</th>
+
+			      <!--if admin show actions-->
+            {% if request.session.user_data.level_id == 1 %}
+			      <th >Actions</th>
+			      <!--end admin-->
+            {% endif %}
+			    </tr>
+		  	</thead>
+		  	<tbody>
+          {% for users in user %}
+			    <tr>
+			      <td >{{users.id}}</td>
+			      <td><a href="#">{{users.first_name}} {{users.last_name}}</a></td>
+			      <td>{{users.email}}</td>
+			      <td>{{users.created_at}}</td>
+			      <td>{{users.level_id__level}}</td>
+			      <!--if admin show actions-->
+            {% if request.session.user_data.level_id == 1 %}
+
+			      <td ><a href="#">edit</a> <a href="#">remove</a></td>
+			      <!--end admin-->
+            {% endif %}
+
+			    </tr>
+          {% endfor %}
+		  </tbody>
+		</table>
+
+
+
+	</div>
+</div>
+{% include "dashboard_app/footer.html"%}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+  padding: 0;
+  overflow-x:hidden;
+
+}
+
+
+nav{
+  margin:0px;
+}
+.modal {
+    overflow-y: auto;
+}
+#signup{
+  margin: 20px;
+}
+.messages{
+  color: red;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User dashboard header</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="{% static 'login_app/js/script.js' %}"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+	<style>.carousel-item > img { width:auto; max-height:600px; } </style>
+
+</head>
+<body>
+
+	<!-- this part is for carousal -->
+	{% include "login_app/header.html"%}
+
+	<div class= "container-fluid">
+		<div class="row">
+
+      <div class="col col-md-6 offset-md-3">
+      <div class="card " id="signup">
+        <div class="card-header text-center text-primary"><h4>Login / Register</h4></div>
+        <div class="card-body" id="logregForm">
+          <!--  Login Form  -->
+
+                      <form class="login-form" id="loginform" method="post" action="/login">{% csrf_token %}
+                        {% if messages %}
+                         {% for message in messages %}
+                           <p class=messages>{{message}}</p>
+                            {% endfor %}
+                            {% endif %}
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="email" name="email"
+                           placeholder="Email" required="required" />
+                          <p class="text-danger text-center" id="user-email-exists-error"
+                           style="display:none;">Email already registered.</p>
+                        </div>
+                        <div class="form-group">
+                          <input type="password" name="password" id="password" class="form-control"
+                           placeholder="Password" required="required" />
+                        </div>
+
+                        <div class="form-group text-center">
+                          <input type="submit" value="Login" class="btn  btn-lg"
+                           id="signUp-Submit">
+                        </div>
+                      </form>
+
+          <!-- End of Login-->
+          </div>
+          <div class="card-footer text-center" id="footer">
+            <a href="/registration" > Create Account</a>
+
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- End of Registration Modal -->
+{% include "login_app/footer.html"%}
+
+
+
+</body>
+</html>

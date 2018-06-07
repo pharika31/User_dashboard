@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User dashboard </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<a class="navbar-brand" href="#">Dashboard</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+  		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      
+		    </ul>
+		   
+		    <div class="navbarText">
+				
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+  						<i class="fa fa-sign-in" style="font-size:22px;color:white"> Login</i>
+					</button>
+				
+			</div>
+
+		    
+  		</div>
+	</nav>
+
+
+	<!--login/reg modal-->
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+	    aria-hidden="true">
+	    <div class="modal-dialog modal-lg">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                
+	                <h4 class="modal-title" id="myModalLabel">
+	                    Login/Registration </h4>
+	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                    ×</button>
+	            </div>
+	            <div class="modal-body">
+	                <div class="row">
+	                    <div class="col-md-8" >
+	                        <!-- Nav tabs -->
+	                        <ul class="nav nav-tabs">
+	                            <li class=" nav-item active"><a class= "nav-link" href="#Login" data-toggle="tab">Login</a></li>
+	                            <li class="nav-item"><a class= "nav-link" href="#Registration" data-toggle="tab">Registration</a></li>
+	                        </ul>
+	                        <!-- Tab panes -->
+	                        <div class="tab-content">
+	                            <div class="tab-pane active" id="Login">
+	                                <form role="form" data-toggle="validator" name="loginForm" class="form-horizontal" action="Login" method="POST">
+	                                <div class="form-group">
+	                                    <label for="email" class="col-sm-2 control-label">
+	                                        Email</label>
+	                                    <div class="col-sm-10">
+	                                        <input required type="email" class="form-control" name="email" id="email" placeholder="abc@xyz.com" />
+	                                    <div class="help-block with-errors"></div>
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label for="password" class="col-sm-2 control-label">
+	                                        Password</label>
+	                                    <div class="col-sm-10">
+	                                        <input type="password" required class="form-control" name="password" id="password" placeholder="enter your password" />
+	                                    <div class="help-block with-errors"></div>
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    
+	                                    <div class="col-sm-10">
+	                                        <button type="submit" class="btn btn-primary btn-sm">
+	                                            Submit</button>
+	                                        <!--change ends here-->
+	                                    </div>
+	                                </div>
+	                                </form>
+	                            </div>
+	                            <div class="tab-pane" id="Registration">
+	                                <form data-toggle="validator" role="form" name="registrationForm" class="form-horizontal" method="GET" action="Register">
+	                                <div class="form-group">
+	                                    <label for="f_name" class="col-sm-4 control-label">
+	                                        First Name</label>
+	                                    <div class="col-sm-10">
+	                                        <div class="row">
+	                                            
+	                                            <div class="col-md-12">
+	                                                <input required type="text" class="form-control" name="f_name" placeholder="First Name" />
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label for="l_name" class="col-sm-4 control-label">
+	                                        Last Name</label>
+	                                    <div class="col-sm-10">
+	                                        <div class="row">
+	                                            
+	                                            <div class="col-md-12">
+	                                                <input required type="text" class="form-control" name="l_name" placeholder="Last Name" />
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label for="email" class="col-sm-4 control-label">
+	                                        Email</label>
+	                                    <div class="col-sm-10">
+	                                        <input type="email" required class="form-control" name="email" id="email" placeholder="tom@some.com" />
+	                                    </div>
+	                                </div>
+	                                
+	                                <div class="form-group">
+	                                    <label for="password" class="col-sm-4 control-label">
+	                                        Password</label>
+	                                    <div class="col-sm-10">
+	                                        <input type="password" required class="form-control" name="password" id="password" placeholder="Password" />
+	                                    </div>
+	                                </div>
+	                                <div class="form-group">
+	                                    <label for="password" class="col-sm-4 control-label">
+	                                        Confirm Password</label>
+	                                    <div class="col-sm-10">
+	                                        <input type="password" required class="form-control" name="pw_confirm" id="pw_conirm" placeholder="Confirm Password" />
+	                                    </div>
+	                                </div>
+
+	                                <div class="form-group">
+	                                    
+	                                    <div class="col-sm-10">
+	                                        <button type="submit" class="btn btn-primary btn-sm">
+	                                            Submit</button>
+	                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">
+	                                            Cancel</button>
+	                                    </div>
+	                                </div>
+	                                </form>
+	                            </div>
+	                        </div>
+	                        
+	                	</div>
+	           		 </div>
+	        	</div>
+	    	</div>
+		</div>
+
+    </div>
+
+
+</body>
+</html>
